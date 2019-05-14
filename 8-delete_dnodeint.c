@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 /**
 *delete_dnodeint_at_index - deletes the node at index index of a linked list
 *
@@ -7,9 +7,9 @@
 *
 *Return: 1 if it succeeded else -1 if it failed
 */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 {
-	dlistint_t *nodo, *aux, *sig;
+	stack_t *nodo, *aux, *sig;
 	unsigned int cont;
 
 	aux = *head;
