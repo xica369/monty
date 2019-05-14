@@ -1,15 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "lists.h"
+#include "monty.h"
 /**
  *free_dlistint - function that frees a listint_t list
  *
  *@head: pointer to head element in list
  */
-void free_dlistint(dlistint_t *head)
+void free_dlistint(stack_t *head)
 {
-	dlistint_t *nodo;
+	stack_t *nodo;
 
 	while (head != '\0')
 	{

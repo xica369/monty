@@ -1,23 +1,22 @@
-#include "lists.h"
+#include "monty.h"
 /**
- *add_dnodeint - adds a new node at the beginning of a dlistint_t lis
+ *f_push - adds a new node at the beginning of a dlistint_t lis
  *
  *@head: pointer to first element of the list
- *@n: the value of the parameter n in the list
- *
- *Return: the address of the new element, or NULL if it failed
+ *@line_number: number of the line of file
  */
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+void f_push(stack_t **head, unsigned int line_number)
 {
-	dlistint_t *nodo;
+	stack_t *nodo;
 
-	nodo = malloc(sizeof(dlistint_t));
+	(void) line_number;
+	nodo = malloc(sizeof(stack_t));
 	if (nodo == NULL)
 	{
 		free(nodo);
-		return (NULL);
+		/* return (NULL); */
 	}
-	nodo->n = n;
+	nodo->n = numb;
 	nodo->next = *head;
 	if (*head != NULL)
 	{
@@ -25,5 +24,5 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	}
 	*head = nodo;
 	nodo->prev = NULL;
-	return (*head);
+	/* return (*head); */
 }
