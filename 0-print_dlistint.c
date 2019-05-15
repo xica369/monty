@@ -8,10 +8,11 @@
 void f_pall(stack_t **h, unsigned int line_number)
 {
 	unsigned int i;
+	stack_t *head2 = *h;
 	(void)line_number;
 
-	for (i = 0; *h != NULL; *h = (*h)->next, i++)
+	for (i = 0; head2 != NULL; head2 = head2->next, i++)
 	{
-		printf("%d\n", (*h)->n);
+		printf("%d\n", head2->n);
 	}
 }

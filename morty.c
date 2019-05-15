@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	FILE *fp;
 	char **data;
 	stack_t *head;
-	unsigned int line_number = 0;
+	unsigned int line_number = 0, i = 0;
 
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
@@ -35,7 +35,11 @@ int main(int argc, char **argv)
 		if (data[1] != NULL)
 			numb = atoi(data[1]);
 		check_functions(data, &head, line_number);
+		for (i = 0; data[i] != NULL; i++)
+			free(data[i]);
+		free(data);
 	}
+	free_dlistint(head);
 	fclose(fp);
 	free(buffer);
 	return (0);
