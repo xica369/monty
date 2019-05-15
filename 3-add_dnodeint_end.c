@@ -17,7 +17,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	{
 		/* free(nodo); */
 		/* return (NULL); */
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	nodo->n = n;

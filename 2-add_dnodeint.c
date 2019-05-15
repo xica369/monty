@@ -14,7 +14,7 @@ void f_push(stack_t **head, unsigned int line_number)
 	if (nodo == NULL)
 	{
 		/* free(nodo); */
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 		/* return (NULL); */
 	}
