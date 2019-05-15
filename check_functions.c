@@ -11,6 +11,7 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number)
 	instruction_t check[] = {
 		{"push", f_push},
 		{"pall", f_pall},
+		{"pint", f_pint},
 		{NULL, NULL}
 	};
 
