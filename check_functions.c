@@ -13,6 +13,8 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number)
 		{"pall", f_pall},
 		{"pint", f_pint},
 		{"pop", f_pop},
+		{"swap", f_swap},
+		{"add", f_add},
 		{NULL, NULL}
 	};
 
