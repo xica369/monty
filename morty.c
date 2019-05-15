@@ -38,12 +38,15 @@ int main(int argc, char **argv)
 		line_number++;
 		buffer[checkget - 1] = '\0';
 		data = _strtok(buffer, " ");
-		if (data[1] != NULL)
-			numb = atoi(data[1]);
-		check_functions(data, &head, line_number, buffer, fp);
-		for (i = 0; data[i] != NULL; i++)
-			free(data[i]);
-		free(data);
+		if (data != NULL)
+		{
+			if (data[1] != NULL)
+				numb = atoi(data[1]);
+			check_functions(data, &head, line_number, buffer, fp);
+			for (i = 0; data[i] != NULL; i++)
+				free(data[i]);
+			free(data);
+		}
 	}
 	free_dlistint(head);
 	fclose(fp);
