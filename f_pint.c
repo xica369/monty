@@ -7,10 +7,10 @@
  */
 void f_pint(stack_t **h, unsigned int line_number)
 {
-        if (*h == NULL)
-        {
-                fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
-                exit(EXIT_FAILURE);
-        }
-        printf("%i\n", (*h)->n);
+	if (*h == NULL)
+	{
+		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%i\n", (*h)->n);
 }

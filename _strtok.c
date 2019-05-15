@@ -36,7 +36,7 @@ char **_strtok(char *str, char *delim)
 		return (NULL);
 	p = (char **)malloc(sizeof(char *) * (height + 1));
 	if (p  == NULL)
-	{		fprintf(stderr,"Error: malloc failed\n");
+	{		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);	}
 	i = 0;
 	count = 0;
@@ -48,7 +48,7 @@ char **_strtok(char *str, char *delim)
 		{	p[word] = (char *)malloc((count + 1) * sizeof(char));
 			if (p[word] == NULL)
 			{ finallyfree(p, word);
-				fprintf(stderr,"Error: malloc failed\n");
+				fprintf(stderr, "Error: malloc failed\n");
 				exit(EXIT_FAILURE);			}
 			for (k = 0; k < count; k++)
 				p[word][k] = str[i - count + 1 + k];
