@@ -45,5 +45,6 @@ void f_push(stack_t **head, unsigned int line_number);
 int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 void check_functions(char **argv, stack_t **head, unsigned int line_number);
 void f_pall(stack_t **h, unsigned int line_number);
+void f_pint(stack_t **h, unsigned int line_number);
 
 #endif
