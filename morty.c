@@ -11,11 +11,10 @@ nc.
 
 int main(int argc, char **argv)
 {
-	char *buffer = NULL;
+	char *buffer = NULL, **data;
 	size_t bufsize = 0;
 	ssize_t checkget = 0;
 	FILE *fp;
-	char **data;
 	stack_t *head;
 	unsigned int line_number = 0, i = 0, j = 0;
 
@@ -26,19 +25,23 @@ int main(int argc, char **argv)
 	}
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+	{		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);	}
 	(void)argc;
 	head = NULL;
 	while ((checkget = getline(&buffer, &bufsize, fp)) != -1)
-	{
-		line_number++;
+	{	line_number++;
 		buffer[checkget - 1] = '\0';
 		data = _strtok(buffer, " ");
 		if (data != NULL)
 		{
+      if (strcmp(data[0], "nop") == 0)
+		  {
+			  for (i = 0; data[i] != NULL; i++)
+				  free(data[i]);
+			  free(data);
+			  continue;
+		  }
 			if (data[1] != NULL)
 				numb = atoi(data[1]);
 			for (j = 0; data[1][j]; j++)
