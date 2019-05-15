@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 		data = _strtok(buffer, " ");
 		if (data[1] != NULL)
 			numb = atoi(data[1]);
-		check_functions(data, &head, line_number);
+		check_functions(data, &head, line_number, buffer, fp);
 		for (i = 0; data[i] != NULL; i++)
 			free(data[i]);
 		free(data);

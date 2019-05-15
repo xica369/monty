@@ -11,6 +11,7 @@ void f_swap(stack_t **h, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: can't swap, stack too short\n",
 			line_number);
+		free_dlistint(*h);
 		exit(EXIT_FAILURE);
 	}
 	numb = (*h)->n;
