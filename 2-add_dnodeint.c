@@ -13,7 +13,9 @@ void f_push(stack_t **head, unsigned int line_number)
 	nodo = malloc(sizeof(stack_t));
 	if (nodo == NULL)
 	{
-		free(nodo);
+		/* free(nodo); */
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
 		/* return (NULL); */
 	}
 	nodo->n = numb;
