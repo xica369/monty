@@ -13,6 +13,7 @@ void f_add(stack_t **h, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: can't add, stack too short\n",
 			line_number);
+		free_dlistint(*h);
 		exit(EXIT_FAILURE);
 	}
 	numb = (*h)->n + (*h)->next->n;

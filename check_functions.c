@@ -5,9 +5,10 @@
  *@line_number: arguments as a sinble string
  *@head: pointer to first element to list
  */
-void check_functions(char **argv, stack_t **head, unsigned int line_number)
+void check_functions(char **argv, stack_t **head, unsigned int line_number,
+		     char *buf, FILE *fp)
 {
-	int i = 0;
+	unsigned int i = 0, j = 0;
 	instruction_t check[] = {
 		{"push", f_push},
 		{"pall", f_pall},
@@ -22,13 +23,39 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number)
 	{
 		if (strcmp(argv[0], check[i].opcode) == 0)
 		{
-			if (numb == 0 && strcmp(argv[1], "0") != 0 &&
-			    strcmp("push", check[i].opcode) == 0)
+			if (i == 0 && numb == 0)
 			{
-				fprintf(stderr,
-					"L%i: usage: push integer\n",
-					line_number);
-				exit(EXIT_FAILURE);
+				if (argv[1] == NULL
+				    || strcmp(argv[1], "0") != 0)
+				{
+					fprintf(stderr,
+						"L%i: usage: push integer\n",
+						line_number);
+					for (j = 0; argv[j]; j++)
+						free(argv[j]);
+					free(argv);
+					free(buf);
+					fclose(fp);
+					free_dlistint(*head);
+					exit(EXIT_FAILURE);
+				}
+			}
+			if ((i == 2 || i == 3) && *head == NULL)
+			{
+				for (j = 0; argv[j]; j++)
+					free(argv[j]);
+				free(argv);
+				free(buf);
+				fclose(fp);
+			}
+			if ((i == 4 || i == 5) &&
+			    (*head == NULL || (*head)->next == NULL))
+			{
+				for (j = 0; argv[j]; j++)
+					free(argv[j]);
+				free(argv);
+				free(buf);
+				fclose(fp);
 			}
 			check[i].f(head, line_number);
 			break;
