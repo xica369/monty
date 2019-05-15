@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	ssize_t checkget = 0;
 	FILE *fp;
 	stack_t *head;
-	unsigned int line_number = 0, i = 0;
+	unsigned int line_number = 0, i = 0, j = 0;
 
 	if (argc != 2)
 	{
@@ -33,19 +33,28 @@ int main(int argc, char **argv)
 	{	line_number++;
 		buffer[checkget - 1] = '\0';
 		data = _strtok(buffer, " ");
-		if (strcmp(data[0], "nop") == 0)
+		if (data != NULL)
 		{
+      if (strcmp(data[0], "nop") == 0)
+		  {
+			  for (i = 0; data[i] != NULL; i++)
+				  free(data[i]);
+			  free(data);
+			  continue;
+		  }
+			if (data[1] != NULL)
+				numb = atoi(data[1]);
+			for (j = 0; data[1][j]; j++)
+			{
+				if (isdigit(data[1][j]) == 0
+				    && data[1][0] != '-')
+					numb = 0;
+			}
+			check_functions(data, &head, line_number, buffer, fp);
 			for (i = 0; data[i] != NULL; i++)
 				free(data[i]);
 			free(data);
-			continue;
 		}
-		if (data[1] != NULL)
-			numb = atoi(data[1]);
-		check_functions(data, &head, line_number, buffer, fp);
-		for (i = 0; data[i] != NULL; i++)
-			free(data[i]);
-		free(data);
 	}
 	free_dlistint(head);
 	fclose(fp);
