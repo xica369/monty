@@ -1,4 +1,5 @@
 #include "monty.h"
+unsigned int numb = 0;
 /**
  *main - receive the info, verific Crt+C Crt+D and exit and exec other fu\
 nc.
@@ -7,8 +8,6 @@ nc.
 *
 *Return: ) if sucessful
 */
-
-unsigned int numb = 0;
 
 int main(int argc, char **argv)
 {

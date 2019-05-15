@@ -3,7 +3,7 @@
 *f_pop - removes the top element of the stack
 *
 *@h: pointer to head element in list
-*@index: index of the node that should be deleted
+*@line_number: number of the line of file
 */
 void f_pop(stack_t **h, unsigned int line_number)
 {
