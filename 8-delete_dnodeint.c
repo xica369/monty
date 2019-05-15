@@ -1,44 +1,27 @@
 #include "monty.h"
 /**
-*delete_dnodeint_at_index - deletes the node at index index of a linked list
+*f_pop - removes the top element of the stack
 *
-*@head: pointer to head element in list
+*@h: pointer to head element in list
 *@index: index of the node that should be deleted
-*
-*Return: 1 if it succeeded else -1 if it failed
 */
-int delete_dnodeint_at_index(stack_t **head, unsigned int index)
+void f_pop(stack_t **h, unsigned int line_number)
 {
 	stack_t *nodo, *aux, *sig;
-	unsigned int cont;
 
-	aux = *head;
-	if (index == 0 && aux != NULL)
+	aux = *h;
+	if (*h == NULL)
 	{
-		sig = aux->next;
-		nodo = aux;
-		free(nodo);
-		if (sig != NULL)
-		{
-			sig->prev = NULL;
-		}
-		*head = sig;
-		return (1);
+		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
 	}
-	for (cont = 0; aux != NULL; aux = aux->next, cont++)
+
+	sig = aux->next;
+	nodo = aux;
+	free(nodo);
+	if (sig != NULL)
 	{
-		if (cont == index - 1)
-		{
-			sig = (aux->next)->next;
-			nodo = aux->next;
-			free(nodo);
-			aux->next = sig;
-			if (sig != NULL)
-			{
-				sig->prev = aux;
-			}
-			return (1);
-		}
+		sig->prev = NULL;
 	}
-	return (-1);
+	*h = sig;
 }

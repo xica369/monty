@@ -42,9 +42,11 @@ char **_strtok(char *str, char *delim);
 void free_dlistint(stack_t *head);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 void f_push(stack_t **head, unsigned int line_number);
-int delete_dnodeint_at_index(stack_t **head, unsigned int index);
 void check_functions(char **argv, stack_t **head, unsigned int line_number);
 void f_pall(stack_t **h, unsigned int line_number);
 void f_pint(stack_t **h, unsigned int line_number);
+void f_pop(stack_t **h, unsigned int line_number);
+void f_swap(stack_t **h, unsigned int line_number);
+void f_add(stack_t **h, unsigned int line_number);
 
 #endif
