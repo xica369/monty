@@ -32,7 +32,8 @@ int main(int argc, char **argv)
 		line_number++;
 		buffer[checkget - 1] = '\0';
 		data = _strtok(buffer, " ");
-		numb = atoi(data[1]);
+		if (data[1] != NULL)
+			numb = atoi(data[1]);
 		check_functions(data, &head, line_number);
 	}
 	fclose(fp);

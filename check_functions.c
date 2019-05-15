@@ -10,6 +10,7 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number)
 	int i = 0;
 	instruction_t check[] = {
 		{"push", f_push},
+		{"pall", f_pall},
 		{NULL, NULL}
 	};
 
@@ -20,6 +21,7 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number)
 			check[i].f(head, line_number);
 			break;
 		}
+		i++;
 	}
 	if (check[i].opcode == NULL)
 	{
