@@ -66,6 +66,12 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_number,
 			argv[0]);
+		for (j = 0; argv[j]; j++)
+			free(argv[j]);
+		free(argv);
+		free(buf);
+		fclose(fp);
+		free_dlistint(*head);
 		exit(EXIT_FAILURE);
 	}
 }
