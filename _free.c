@@ -11,7 +11,6 @@ void _free(char **argv, stack_t **head, char *buf, FILE *fp, int i)
 {
 	int j;
 
-	(void)head;
 	for (j = 0; argv[j]; j++)
 		free(argv[j]);
 	free(argv);
