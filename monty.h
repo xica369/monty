@@ -50,7 +50,7 @@ void f_pint(stack_t **h, unsigned int line_number);
 void f_pop(stack_t **h, unsigned int line_number);
 void f_swap(stack_t **h, unsigned int line_number);
 void f_add(stack_t **h, unsigned int line_number);
-void _free(char **argv, stack_t **head, char *buf, FILE *fp);
 void f_sub(stack_t **h, unsigned int line_number);
+void _free(char **argv, stack_t **head, char *buf, FILE *fp, int i);
 
 #endif

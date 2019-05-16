@@ -33,14 +33,14 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 				{	fprintf(stderr,
 						"L%i: usage: push integer\n",
 						line_number);
-					_free(argv, head, buf, fp);
+					_free(argv, head, buf, fp, i);
 					exit(EXIT_FAILURE);	}
 			}
 			if ((i == 2 || i == 3) && *head == NULL)
-				_free(argv, head, buf, fp);
+				_free(argv, head, buf, fp, i);
 			if ((i == 4 || i == 5) &&
 			    (*head == NULL || (*head)->next == NULL))
-				_free(argv, head, buf, fp);
+				_free(argv, head, buf, fp, i);
 			check[i].f(head, line_number);
 			break;		}
 		i++;
@@ -49,6 +49,6 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 	{
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_number,
 			argv[0]);
-		_free(argv, head, buf, fp);
+		_free(argv, head, buf, fp, i);
 		exit(EXIT_FAILURE);	}
 }
