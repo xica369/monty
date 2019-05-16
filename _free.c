@@ -7,7 +7,7 @@
  *@buf: buffer
  *@fp: file to read
  */
-void _free(char **argv, stack_t **head, char *buf, FILE *fp)
+void _free(char **argv, stack_t **head, char *buf, FILE *fp, int i)
 {
 	int j;
 
@@ -16,6 +16,6 @@ void _free(char **argv, stack_t **head, char *buf, FILE *fp)
 	free(argv);
 	free(buf);
 	fclose(fp);
-	if (*head != NULL)
-		free_dlistint(*head);
+	if (*head != NULL && i != 4 && i != 5)
+	 	free_dlistint(*head);
 }
