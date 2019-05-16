@@ -18,6 +18,7 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 		{"pop", f_pop},
 		{"swap", f_swap},
 		{"add", f_add},
+		{"sub", f_sub},
 		{NULL, NULL}
 	};
 
