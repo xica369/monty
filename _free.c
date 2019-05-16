@@ -16,6 +16,6 @@ void _free(char **argv, stack_t **head, char *buf, FILE *fp, int i)
 	free(argv);
 	free(buf);
 	fclose(fp);
-	if (*head != NULL && i != 4 && i != 5)
+	if (*head != NULL && i != 4 && i != 5 && i != 6)
 	 	free_dlistint(*head);
 }

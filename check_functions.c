@@ -38,7 +38,7 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 			}
 			if ((i == 2 || i == 3) && *head == NULL)
 				_free(argv, head, buf, fp, i);
-			if ((i == 4 || i == 5) &&
+			if ((i == 4 || i == 5 || i == 6) &&
 			    (*head == NULL || (*head)->next == NULL))
 				_free(argv, head, buf, fp, i);
 			check[i].f(head, line_number);
