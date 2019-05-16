@@ -10,7 +10,7 @@
 void check_functions(char **argv, stack_t **head, unsigned int line_number,
 		     char *buf, FILE *fp)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, confzero = 0, j = 0;
 	instruction_t check[] = {
 		{"push", f_push},
 		{"pall", f_pall},
@@ -28,8 +28,16 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 		{
 			if (i == 0 && numb == 0)
 			{
+				if (argv[1] != NULL)
+				{
+					for (j = 0; argv[1][j]; j++)
+					{
+						if (argv[1][j] != '0')
+							confzero = 1;
+					}
+				}
 				if (argv[1] == NULL
-				    || strcmp(argv[1], "0") != 0)
+				    || confzero != 0)
 				{	fprintf(stderr,
 						"L%i: usage: push integer\n",
 						line_number);
