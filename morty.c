@@ -1,5 +1,5 @@
 #include "monty.h"
-unsigned int numb = 0;
+int numb = 0;
 /**
  *main - receive the info, verific Crt+C Crt+D and exit and exec other fu\
 nc.
@@ -45,10 +45,12 @@ int main(int argc, char **argv)
 			if (data[1] != NULL)
 			{
 				numb = atoi(data[1]);
-				for (j = 0; data[1][j]; j++)
+				j = 0;
+				if (numb < 0)
+					j++;
+				for (; data[1][j]; j++)
 				{
-					if (isdigit(data[1][j]) == 0
-					    && data[1][0] != '-')
+					if (isdigit(data[1][j]) == 0)
 						numb = 0;
 				}
 			}
