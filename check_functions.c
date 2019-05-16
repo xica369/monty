@@ -30,7 +30,9 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 			{
 				if (argv[1] != NULL)
 				{
-					for (j = 0; argv[1][j]; j++)
+					if (argv[1][0] == '-')
+						j++;
+					for (; argv[1][j]; j++)
 					{
 						if (argv[1][j] != '0')
 							confzero = 1;
