@@ -37,7 +37,7 @@ typedef struct instruction_s
 } instruction_t;
 
 
-extern unsigned int numb;
+extern int numb;
 void finallyfree(char **p, int i);
 char **_strtok(char *str, char *delim);
 void free_dlistint(stack_t *head);

@@ -1,5 +1,5 @@
 #include "monty.h"
-unsigned int numb = 0;
+int numb = 0;
 /**
  *main - receive the info, verific Crt+C Crt+D and exit and exec other fu\
 nc.
@@ -35,20 +35,24 @@ int main(int argc, char **argv)
 		data = _strtok(buffer, " ");
 		if (data != NULL)
 		{
-      if (strcmp(data[0], "nop") == 0)
-		  {
-			  for (i = 0; data[i] != NULL; i++)
-				  free(data[i]);
-			  free(data);
-			  continue;
-		  }
-			if (data[1] != NULL)
-				numb = atoi(data[1]);
-			for (j = 0; data[1][j]; j++)
+			if (strcmp(data[0], "nop") == 0)
 			{
-				if (isdigit(data[1][j]) == 0
-				    && data[1][0] != '-')
-					numb = 0;
+				for (i = 0; data[i] != NULL; i++)
+					free(data[i]);
+				free(data);
+				continue;
+			}
+			if (data[1] != NULL)
+			{
+				numb = atoi(data[1]);
+				j = 0;
+				if (numb < 0)
+					j++;
+				for (; data[1][j]; j++)
+				{
+					if (isdigit(data[1][j]) == 0)
+						numb = 0;
+				}
 			}
 			check_functions(data, &head, line_number, buffer, fp);
 			for (i = 0; data[i] != NULL; i++)
