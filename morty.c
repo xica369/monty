@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 		data = _strtok(buffer, " ");
 		if (data != NULL)
 		{
-			if (strcmp(data[0], "nop") == 0)
+			if (strcmp(data[0], "nop") == 0 || data[0][0] == '#')
 			{
 				for (i = 0; data[i] != NULL; i++)
 					free(data[i]);
