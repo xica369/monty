@@ -64,6 +64,7 @@ void _nonulldata(char **data, stack_t **head, unsigned int line_number,
 		free(data);
 		return;
 	}
+	numb = 0;
 	if (data[1] != NULL)
 	{
 		numb = atoi(data[1]);
