@@ -21,6 +21,7 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 		{"sub", f_sub},
 		{"mul", f_mul},
 		{"div", f_div},
+		{"mod", f_mod},
 		{NULL, NULL}
 	};
 
@@ -53,7 +54,7 @@ void check_functions(char **argv, stack_t **head, unsigned int line_number,
 			if (i >= 4 &&
 			    (*head == NULL || (*head)->next == NULL))
 				_free(argv, head, buf, fp, i);
-			if (*head != NULL && i == 8 && (*head)->n == 0)
+			if (*head != NULL && i >= 8 && (*head)->n == 0)
 				_free(argv, head, buf, fp, i);
 			check[i].f(head, line_number);
 			break;		}
