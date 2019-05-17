@@ -6,6 +6,7 @@
  *@head: pointer to first element to stack
  *@buf: buffer
  *@fp: file to read
+ *@i: counter of the functions
  */
 void _free(char **argv, stack_t **head, char *buf, FILE *fp, int i)
 {
@@ -17,5 +18,5 @@ void _free(char **argv, stack_t **head, char *buf, FILE *fp, int i)
 	free(buf);
 	fclose(fp);
 	if (*head != NULL && i < 4)
-	 	free_dlistint(*head);
+		free_dlistint(*head);
 }

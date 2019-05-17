@@ -55,6 +55,10 @@ void _free(char **argv, stack_t **head, char *buf, FILE *fp, int i);
 void f_mul(stack_t **h, unsigned int line_number);
 void f_div(stack_t **h, unsigned int line_number);
 void f_mod(stack_t **h, unsigned int line_number);
+void _nonulldata(char **data, stack_t **head, unsigned int line_number,
+		char *buffer, FILE *fp);
 
+void _checkerr(int i, char **argv, stack_t **head, char *buf, FILE *fp,
+	unsigned int line_number);
 
 #endif
