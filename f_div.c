@@ -20,7 +20,7 @@ void f_div(stack_t **h, unsigned int line_number)
 	{
 		fprintf(stderr, "L%i: division by zero\n", line_number);
 		free_dlistint(*h);
-                exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	numb = (*h)->next->n / (*h)->n;
 	(*h)->next->n = numb;

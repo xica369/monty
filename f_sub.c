@@ -7,18 +7,18 @@
  */
 void f_sub(stack_t **h, unsigned int line_number)
 {
-        stack_t *aux;
+	stack_t *aux;
 
-        if (*h == NULL || (*h)->next == NULL)
-        {
-                fprintf(stderr, "L%i: can't sub, stack too short\n",
-                        line_number);
-                free_dlistint(*h);
-                exit(EXIT_FAILURE);
-        }
-        numb = (*h)->next->n - (*h)->n;
-        (*h)->next->n = numb;
-        aux = *h;
-        *h = (*h)->next;
-        free(aux);
+	if (*h == NULL || (*h)->next == NULL)
+	{
+		fprintf(stderr, "L%i: can't sub, stack too short\n",
+			line_number);
+		free_dlistint(*h);
+		exit(EXIT_FAILURE);
+	}
+	numb = (*h)->next->n - (*h)->n;
+	(*h)->next->n = numb;
+	aux = *h;
+	*h = (*h)->next;
+	free(aux);
 }
