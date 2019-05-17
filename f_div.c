@@ -18,7 +18,7 @@ void f_div(stack_t **h, unsigned int line_number)
 	}
 	if ((*h)->n == 0)
 	{
-		fprintf(stderr, "L%i: division by zero", line_number);
+		fprintf(stderr, "L%i: division by zero\n", line_number);
 		free_dlistint(*h);
                 exit(EXIT_FAILURE);
 	}
